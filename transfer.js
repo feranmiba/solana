@@ -43,6 +43,9 @@ const transferSol = async() => {
         const connection = new Connection(clusterApiUrl("devnet"), "confirmed");
         var from = Keypair.fromSecretKey(DEMO_FROM_SECRET_KEY);
             try {
+                const walletBalance = await connection.getBalance(
+                    new PublicKey(from.publicKey)
+                );
                     // Get Keypair from Secret Key
                     var from = Keypair.fromSecretKey(DEMO_FROM_SECRET_KEY);
 
