@@ -19,7 +19,6 @@ const DEMO_FROM_SECRET_KEY = new Uint8Array(
     // paste your secret key inside this empty array
     // then uncomment transferSol() at the bottom
     [
-     
     ]            
 );
 
@@ -72,6 +71,8 @@ const transferSol = async() => {
                     //Get users current acct balance after sending SOL 
                     const SenderBalance =  await connection.getBalance(from.publicKey);
                     console.log(`Sender Wallet balance: ${parseInt(SenderBalance) / LAMPORTS_PER_SOL} SOL`);
+                    const ReceiverBalance = await connection.getBalance(to.publicKey);
+                          console.log("Receiver Wallet balance:", `${parseInt(ReceiverBalance) / LAMPORTS_PER_SOL}`);
                 } catch (err) {
                 console.log(err);
                  }
